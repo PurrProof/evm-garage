@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ethernaut:coinflip:deploy": "pnpm forge create ./src/ethernaut/CoinFlipGuesser.sol:CoinFlipGuesser --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY --constructor-args $COINFLIP_INSTANCE",
+    "ethernaut:coinflip:wins": "cast call --rpc-url $ETH_RPC_URL $COINFLIP_INSTANCE \"consecutiveWins()\"",
+    "ethernaut:coinflip:guess": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $COINFLIPGUESSER_INSTANCE \"guess()\""
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "dotenv-cli": "^7.4.2",
     "prettier": "^3.2.5",
     "prettier-plugin-solidity": "^1.3.1"
   }
