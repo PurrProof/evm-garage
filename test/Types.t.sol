@@ -30,4 +30,14 @@ contract TypesTest is Test {
             assertEq(type(int8).min * int8(-1), -128);
         }
     }
+
+    function test_StringLiteral() public pure {
+        string memory test = "\n\"'\\abc\
+def\
+1";
+        assertEq(bytes(test).length, 11);
+        test = "\
+";
+        assertEq(bytes(test).length, 0);
+    }
 }
