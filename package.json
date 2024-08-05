@@ -10,7 +10,9 @@
     "ethernaut:coinflip:guess": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $COINFLIPGUESSER_INSTANCE \"guess()\"",
     "ethernaut:telephone:deploy": "pnpm forge create ./src/ethernaut/TelephoneProxy.sol:TelephoneProxy --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY --constructor-args $TELEPHONE_INSTANCE",
     "ethernaut:telephone:owner": "cast call --rpc-url $ETH_RPC_URL $TELEPHONE_INSTANCE \"owner()\"",
-    "ethernaut:telephone:own": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TELEPHONEPROXY_INSTANCE \"takeOwnership()\""
+    "ethernaut:telephone:own": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TELEPHONEPROXY_INSTANCE \"takeOwnership()\"",
+    "ethernaut:token:balance": "cast call --rpc-url $ETH_RPC_URL $TOKEN_INSTANCE \"balanceOf(address)\" $PLAYER_ADDRESS",
+    "ethernaut:token:transfer": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TOKEN_INSTANCE \"transfer(address,uint256)\" 0x0000000000000000000000000000000000000000 18"
   },
   "keywords": [],
   "author": "",

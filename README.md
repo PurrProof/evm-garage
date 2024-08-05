@@ -30,6 +30,18 @@ See Telephone owner: `pnpm dotenv pnpm ethernaut:telephone:owner`
 
 Change owner: `pnpm dotenv pnpm ethernaut:telephone:own`, then continue with Ethernaut console.
 
+### Token balance level https://ethernaut.openzeppelin.com/level/0x7AE87cf24Fb5096182a969a1Ad45D0c54410d1Ca
+
+You'll need
+
+```plaintext
+PLAYER_ADDRESS=0x...
+TOKEN_INSTANCE=0x...
+```
+
+- Check player balance: `pnpm dotenv pnpm ethernaut:token:balance`
+- Transfer balance (because of underflow) `pnpm dotenv pnpm ethernaut:token:transfer` (you may need to change transfer value in script, it should be more for a 1 than player balance)
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
