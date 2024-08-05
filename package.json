@@ -12,7 +12,8 @@
     "ethernaut:telephone:owner": "cast call --rpc-url $ETH_RPC_URL $TELEPHONE_INSTANCE \"owner()\"",
     "ethernaut:telephone:own": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TELEPHONEPROXY_INSTANCE \"takeOwnership()\"",
     "ethernaut:token:balance": "cast call --rpc-url $ETH_RPC_URL $TOKEN_INSTANCE \"balanceOf(address)\" $PLAYER_ADDRESS",
-    "ethernaut:token:transfer": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TOKEN_INSTANCE \"transfer(address,uint256)\" 0x0000000000000000000000000000000000000000 18"
+    "ethernaut:token:transfer": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TOKEN_INSTANCE \"transfer(address,uint256)\" 0x0000000000000000000000000000000000000000 18",
+    "ethernaut:forcer:deploy": "pnpm forge create ./src/ethernaut/Forcer.sol:Forcer --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY --value 1wei --gas-limit 3000000 --constructor-args $FORCE_INSTANCE"
   },
   "keywords": [],
   "author": "",

@@ -42,6 +42,21 @@ TOKEN_INSTANCE=0x...
 - Check player balance: `pnpm dotenv pnpm ethernaut:token:balance`
 - Transfer balance (because of underflow) `pnpm dotenv pnpm ethernaut:token:transfer` (you may need to change transfer value in script, it should be more for a 1 than player balance)
 
+### Delegation level https://ethernaut.openzeppelin.com/level/0xF695A9661A3b909ffb15F97556bAb286b19520E7
+
+Execute following command in console: `await sendTransaction({from:player, to:contract.address, data: "0xdd365b8b", gas:300000})`. `0xdd365b8b` is a signature of `pwn()` function. This function call will be delegated to the Delegate contract, and be executed in the context of the Delegation contract. So `owner` storage variable of the Delegation contract will ve changed to `msg.sender`.
+
+### Force level https://ethernaut.openzeppelin.com/level/0x4e8Da8e21d27A10BA7d2510cB90338374828bE86
+
+```
+FORCE_INSTANCE=0x...
+```
+
+- call `pnpm dotenv pnpm ethernaut:forcer:deploy`
+- check `await getBalance(contract.address)` in ethernaut console
+
+Force contract have been forced to receive Eth on attacker contract selfdestruct.
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
