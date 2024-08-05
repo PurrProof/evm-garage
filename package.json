@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ethernaut:coinflip:deploy": "pnpm forge create ./src/ethernaut/CoinFlipGuesser.sol:CoinFlipGuesser --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY --constructor-args $COINFLIP_INSTANCE",
     "ethernaut:coinflip:wins": "cast call --rpc-url $ETH_RPC_URL $COINFLIP_INSTANCE \"consecutiveWins()\"",
-    "ethernaut:coinflip:guess": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $COINFLIPGUESSER_INSTANCE \"guess()\""
+    "ethernaut:coinflip:guess": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $COINFLIPGUESSER_INSTANCE \"guess()\"",
+    "ethernaut:telephone:deploy": "pnpm forge create ./src/ethernaut/TelephoneProxy.sol:TelephoneProxy --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY --constructor-args $TELEPHONE_INSTANCE",
+    "ethernaut:telephone:owner": "cast call --rpc-url $ETH_RPC_URL $TELEPHONE_INSTANCE \"owner()\"",
+    "ethernaut:telephone:own": "cast send --rpc-url $ETH_RPC_URL --private-key $RAW_PRIVATE_KEY $TELEPHONEPROXY_INSTANCE \"takeOwnership()\""
   },
   "keywords": [],
   "author": "",

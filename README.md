@@ -12,8 +12,23 @@ COINFLIPGUESSER_INSTANCE=address_of_the_CoinFlipGuesser_contract
 ```
 
 Deploy the CoinFlipGuesser Contract: `pnpm dotenv pnpm ethernaut:coinflip:deploy`
+
 See wins count: `pnpm dotenv pnpm ethernaut:coinflip:wins`
+
 Make a Guess 10 times: `pnpm dotenv pnpm ethernaut:coinflip:guess`, then continue with Ethernaut console.
+
+### Telephone level https://ethernaut.openzeppelin.com/level/0x9D8e38b52F08FD7b0fc5C04460CdFC3AC30ce7bf
+
+```plaintext
+TELEPHONE_INSTANCE=address_of_the_Telephone_contract
+TELEPHONE_PROXY_INSTANCE=address_of_the_TelephoneProxy_contract
+```
+
+Deploy the TelephoneProxy Contract: `pnpm dotenv pnpm ethernaut:telephone:deploy`
+
+See Telephone owner: `pnpm dotenv pnpm ethernaut:telephone:owner`
+
+Change owner: `pnpm dotenv pnpm ethernaut:telephone:own`, then continue with Ethernaut console.
 
 ## Foundry
 
