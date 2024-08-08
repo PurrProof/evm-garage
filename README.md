@@ -57,6 +57,11 @@ FORCE_INSTANCE=0x...
 
 Force contract have been forced to receive Eth on attacker contract selfdestruct.
 
+### Vault level
+
+- `cast storage -r https://ethereum-holesky-rpc.publicnode.com ...level_address... 1` read slot #1 in storage
+- `await contract.unlock("0x...slot contents....");` in browser console
+
 ## Foundry
 
 **Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
