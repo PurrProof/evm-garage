@@ -4,7 +4,6 @@ pragma solidity ^0.8.26;
 import {Test} from "forge-std/Test.sol";
 import {Counter} from "../../src/Counter.sol";
 import {MyErc1967Proxy} from "../../src/proxy/Erc1967Proxy.sol";
-import {ERC1967Utils} from "@openzeppelin-contracts-5.0.2/proxy/ERC1967/ERC1967Utils.sol";
 
 contract MyErc1967ProxyTest is Test {
     MyErc1967Proxy public proxy;
