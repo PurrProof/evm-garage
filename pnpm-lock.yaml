@@ -7,14 +7,16 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@openzeppelin/contracts':
         specifier: ^5.0.2
         version: 5.0.2
-    devDependencies:
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^4.3.0
         version: 4.3.0(prettier@3.3.3)
+      forge-std:
+        specifier: github:foundry-rs/forge-std#v1.9.2
+        version: https://codeload.github.com/foundry-rs/forge-std/tar.gz/1714bee72e286e73f76e320d110e0eaf5c4e649d
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -592,6 +594,10 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+
+  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/1714bee72e286e73f76e320d110e0eaf5c4e649d:
+    resolution: {tarball: https://codeload.github.com/foundry-rs/forge-std/tar.gz/1714bee72e286e73f76e320d110e0eaf5c4e649d}
+    version: 1.9.2
 
   form-data-encoder@2.1.4:
     resolution: {integrity: sha512-yDYSgNMraqvnxiEXO4hi88+YZxaHC6QKzb5N84iRCTDeRO7ZALpir/lVmf/uXUhnwUr2O4HU8s/n6x+yNjQkHw==}
@@ -1601,7 +1607,7 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axios-debug-log@1.0.0(axios@1.7.4(debug@4.3.6)):
+  axios-debug-log@1.0.0(axios@1.7.4):
     dependencies:
       '@types/debug': 4.1.12
       axios: 1.7.4(debug@4.3.6)
@@ -1974,6 +1980,8 @@ snapshots:
   follow-redirects@1.15.6(debug@4.3.6):
     optionalDependencies:
       debug: 4.3.6
+
+  forge-std@https://codeload.github.com/foundry-rs/forge-std/tar.gz/1714bee72e286e73f76e320d110e0eaf5c4e649d: {}
 
   form-data-encoder@2.1.4: {}
 
@@ -2366,7 +2374,7 @@ snapshots:
       '@aduh95/viz.js': 3.7.0
       '@solidity-parser/parser': 0.16.2
       axios: 1.7.4(debug@4.3.6)
-      axios-debug-log: 1.0.0(axios@1.7.4(debug@4.3.6))
+      axios-debug-log: 1.0.0(axios@1.7.4)
       cli-color: 2.0.4
       commander: 11.1.0
       convert-svg-to-png: 0.6.4
