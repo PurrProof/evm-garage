@@ -2,7 +2,6 @@ package-lock.json
 yarn.lock
 node_modules
 artifacts
-.vscode
 .npm
 .local
 .config

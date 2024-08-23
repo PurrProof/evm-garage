@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
@@ -19,10 +19,12 @@ contract TypesTest is Test {
         vm.expectRevert(stdError.arithmeticError);
         int8 res = type(int8).min / int8(-1);
     }
+
     function test_Overflow2() public {
         vm.expectRevert(stdError.arithmeticError);
         int8 res = type(int8).min * int8(-1);
     }
+
     function test_Unchecked() public pure {
         assertEq(type(int8).min, -128);
         unchecked {
@@ -32,11 +34,13 @@ contract TypesTest is Test {
     }
 
     function test_StringLiteral() public pure {
-        string memory test = "\n\"'\\abc\
+        string memory test =
+            "\n\"'\\abc\
 def\
 1";
         assertEq(bytes(test).length, 11);
-        test = "\
+        test =
+            "\
 ";
         assertEq(bytes(test).length, 0);
     }
