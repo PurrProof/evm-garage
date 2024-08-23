@@ -1,4 +1,5 @@
 # directories
-**/contracts/ethernaut
 **/artifacts
 **/node_modules
+**/dependencies
+**/lib

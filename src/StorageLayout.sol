@@ -8,10 +8,10 @@ contract StorageStruct {
         bool thirdValue;
     }
 
-    uint256 a = 9198; // 0x23ee in hexadecimal
-    uint256 b = 0x5f931e; // 6263582 in decimal
-    SomeStruct structVariable = SomeStruct(0x452, 5, true);
-    bytes32 c;
+    uint256 private _a = 9198; // 0x23ee in hexadecimal
+    uint256 private _b = 0x5f931e; // 6263582 in decimal
+    SomeStruct private _structVariable = SomeStruct(0x452, 5, true);
+    bytes32 private _c;
 }
 
 contract StorageMapping {
@@ -21,10 +21,10 @@ contract StorageMapping {
         uint256 c;
     }
 
-    uint256 x;
-    mapping(uint256 => mapping(uint256 => S)) data;
+    uint256 private _x;
+    mapping(uint256 k => mapping(uint256 => S)) private _data;
 }
 
 contract StorageString {
-    string public test = "";
+    string private _test = "";
 }

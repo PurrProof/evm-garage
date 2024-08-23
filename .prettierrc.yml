@@ -15,3 +15,4 @@ overrides:
       parser: "solidity-parse"
       tabWidth: 4
       singleQuote: false
+      bracketSpacing: false

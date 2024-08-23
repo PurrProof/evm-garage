@@ -1,15 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.26;
 
-import {Test, console} from "forge-std/Test.sol";
-import "forge-std/StdError.sol";
+import {stdError} from "forge-std/StdError.sol";
+import {Test} from "forge-std/Test.sol";
 
 contract TypesTest is Test {
-    function setUp() public {}
-
-    function test_Math() public pure {
-        assertEq(type(int8).min, int8(-128));
-    }
+    //function setUp() public {}
 
     // The expression type(int).min / (-1) is the only case where division causes an overflow.
     // In checked arithmetic mode, this will cause a failing assertion,
@@ -31,6 +27,10 @@ contract TypesTest is Test {
             assertEq(type(int8).min / int8(-1), -128);
             assertEq(type(int8).min * int8(-1), -128);
         }
+    }
+
+    function test_Math() public pure {
+        assertEq(type(int8).min, int8(-128));
     }
 
     function test_StringLiteral() public pure {

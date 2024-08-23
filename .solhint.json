@@ -11,9 +11,13 @@
       }
     ],
     "max-line-length": ["error", 120],
+    "func-name-mixedcase": "off",
+    "func-order": "off",
     "named-parameters-mapping": "warn",
-    "imports-order": "off",
+    "imports-order": "warn",
     "foundry-test-functions": "off",
+    "comprehensive-interface": "off",
+    "one-contract-per-file": "off",
     "no-console": "warn",
     "not-rely-on-time": "warn",
     "prettier/prettier": [
