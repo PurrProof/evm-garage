@@ -11,4 +11,8 @@ contract Counter {
     function increment() public {
         ++number;
     }
+
+    function version() public pure returns (uint256 v) {
+        return 1;
+    }
 }
