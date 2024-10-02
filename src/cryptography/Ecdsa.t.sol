@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
+import {console} from "forge-std/console.sol";
 import {Test} from "forge-std/Test.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
@@ -15,7 +16,7 @@ contract EcdsaTest is Test {
 
     function setUp() public {
         (alice, alicePk) = makeAddrAndKey("alice");
-        MsgHash = keccak256("Signed by Alice!!!sdfsdf");
+        MsgHash = keccak256("Signed by Alice!!!");
         (V, R, S) = vm.sign(alicePk, MsgHash);
     }
 
@@ -54,14 +55,36 @@ contract EcdsaTest is Test {
     function test_ecrecover() public view {
         address signer = ecrecover(MsgHash, V, R, S);
         assertEq(alice, signer);
+
+        // same with OZ's ECDSA.recover
+        signer = ECDSA.recover(MsgHash, V, R, S);
+        assertEq(alice, signer);
+    }
+
+    // https://eips.ethereum.org/EIPS/eip-2098
+    // ERC-2098: Compact Signature Representation
+    function test_recover_compact_signature() public view {
+        bytes32 VS = V == 28 ? bytes32((uint256(S) | uint256(1) << 255)) : S;
+        address signer = ECDSA.recover(MsgHash, R, VS);
+        assertEq(alice, signer);
     }
 
     function test_ecrecover_error() public view {
+        // wrong v
         uint8 wrongV = 42;
         address signer = ecrecover(MsgHash, wrongV, R, S);
         assertEq(0x0000000000000000000000000000000000000000, signer);
 
-        signer = ecrecover(MsgHash, wrongV, R, S << 1);
+        // wrong S
+        signer = ecrecover(MsgHash, V, R, S ^ bytes32(uint256(1)));
+        assertNotEq(alice, signer);
+
+        // wrong R
+        signer = ecrecover(MsgHash, V, R ^ bytes32(uint256(1)), S);
+        assertNotEq(alice, signer);
+
+        // incorrect signature check with OZ's ECDSA.recover
+        signer = ECDSA.recover(keccak256("another message"), V, R, S);
         assertNotEq(alice, signer);
     }
 }
